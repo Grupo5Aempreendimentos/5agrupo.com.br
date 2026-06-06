@@ -372,25 +372,24 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
     <div class="painel-title">Painel de Rastreamento</div>
     <div class="painel-sub">5A RASTREAMENTO &amp; GESTÃO VEICULAR</div>
     <div class="painel-box">
-      <div class="form-group">
-        <label>Usuário / E-mail</label>
-        <input type="text" id="painel-user" placeholder="Seu usuário ou e-mail">
-      </div>
-      <div class="form-group">
-        <label>Senha</label>
-        <input type="password" id="painel-pass" placeholder="Sua senha">
-      </div>
-      <a class="painel-access-btn" href="https://track.velotrack.com.br/" target="_blank" onclick="acessarPainel(event)">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="7" cy="8" r="1.5" fill="currentColor" stroke="none"/><path d="M11 8h6M11 11h4"/></svg>
-        Acessar meu painel
-      </a>
-      <div class="painel-divider"><span>ou</span></div>
-      <a class="painel-direct" href="https://track.velotrack.com.br/" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-        Acessar diretamente no sistema
-      </a>
+      <form id="velotrack-login-form" action="javascript:;" method="" onsubmit="javascript:submitExternalLoginFnc(document.getElementById('username').value, document.getElementById('password').value, 'confianca_servicos', 'https://track.velotrack.com.br')">
+        <div class="form-group">
+          <label>Login</label>
+          <input id="username" name="username" type="text" placeholder="Seu usuário">
+        </div>
+        <div class="form-group">
+          <label>Senha</label>
+          <input id="password" name="password" type="password" placeholder="Sua senha">
+        </div>
+        <button type="submit" class="painel-access-btn" style="border:none;width:100%;cursor:pointer">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="7" cy="8" r="1.5" fill="currentColor" stroke="none"/><path d="M11 8h6M11 11h4"/></svg>
+          Acessar meu painel
+        </button>
+      </form>
     </div>
     <p style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:16px">Não tem acesso? Entre em contato: (62) 99951-0912</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://track.velotrack.com.br/assets/js/external-login.js" type="text/javascript"></script>
   </div>
 </section>
 
@@ -463,10 +462,7 @@ function enviarSocio(e){
   window.open('https://wa.me/5562999510912?text='+msg,'_blank');
 }
 
-function acessarPainel(e){
-  e.preventDefault();
-  window.open('https://track.velotrack.com.br/','_blank');
-}
+
 </script>
 </body>
 </html>
