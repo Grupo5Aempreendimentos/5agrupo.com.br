@@ -375,7 +375,7 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
     <div class="painel-title">Painel de Rastreamento</div>
     <div class="painel-sub">5A RASTREAMENTO &amp; GESTÃO VEICULAR</div>
     <div class="painel-box">
-      <form id="contact-form" action="javascript:;" method="" onsubmit="handleVeloLogin(event)">
+      <form id="contact-form" action="javascript:;" method="" onsubmit="handleLogin(event)">
         <div class="form-group">
           <label>Login</label>
           <input id="username" name="username" type="text" placeholder="Seu usuário">
@@ -389,33 +389,23 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
           Acessar meu painel
         </button>
       </form>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+      <script src="https://track.velotrack.com.br/assets/js/external-login.js"></script>
+      <script>
+      document.getElementById('contact-form').onsubmit = function(e) {
+        e.preventDefault();
+        var user = document.getElementById('username').value;
+        var pass = document.getElementById('password').value;
+        if(!user || !pass){ alert('Preencha login e senha.'); return; }
+        if(typeof submitExternalLoginFnc === 'function'){
+          submitExternalLoginFnc(user, pass, '5A Rastreamento', 'https://5agrupo.com.br/');
+        } else {
+          window.open('https://track.velotrack.com.br', '_blank');
+        }
+      };
+      </script>
     </div>
     <p style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:16px">Não tem acesso? Entre em contato: (62) 99951-0912</p>
-    <script>
-    function loadScript(src,cb){var s=document.createElement('script');s.src=src;s.onload=cb;s.onerror=function(){alert('Erro ao conectar. Tente novamente.');};document.head.appendChild(s);}
-    function handleVeloLogin(e){
-      e.preventDefault();
-      var user=document.getElementById('username').value;
-      var pass=document.getElementById('password').value;
-      if(!user||!pass){alert('Preencha login e senha.');return;}
-      function doLogin(){
-        if(typeof submitExternalLoginFnc==='function'){
-          submitExternalLoginFnc(user,pass,'5A Rastreamento','https://5agrupo.com.br/');
-        } else {
-          alert('Erro ao conectar com o sistema. Tente novamente.');
-        }
-      }
-      if(typeof submitExternalLoginFnc==='function'){
-        doLogin();
-      } else if(typeof $==='undefined'){
-        loadScript('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js',function(){
-          loadScript('https://track.velotrack.com.br/assets/js/external-login.js',doLogin);
-        });
-      } else {
-        loadScript('https://track.velotrack.com.br/assets/js/external-login.js',doLogin);
-      }
-    }
-    </script>
   </div>
 </section>
 
