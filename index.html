@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Grupo 5A — Locadora de Veículos & Rastreamento Veicular</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://track.velotrack.com.br/assets/js/external-login.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -372,7 +374,7 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
     <div class="painel-title">Painel de Rastreamento</div>
     <div class="painel-sub">5A RASTREAMENTO &amp; GESTÃO VEICULAR</div>
     <div class="painel-box">
-      <form id="contact-form" action="javascript:;" method="" onsubmit="javascript:submitExternalLoginFnc(document.getElementById('username').value, document.getElementById('password').value,'5A Rastreamento', 'https://5agrupo.com.br')">
+      <form id="contact-form" action="javascript:;" method="" onsubmit="javascript:submitExternalLoginFnc($('#username').val(),$('#password').val(),'5A Rastreamento','https://5agrupo.com.br')">
         <div class="form-group">
           <label>Login</label>
           <input id="username" name="username" type="text" placeholder="Seu usuário">
@@ -388,22 +390,6 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
       </form>
     </div>
     <p style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:16px">Não tem acesso? Entre em contato: (62) 99951-0912</p>
-    <script>
-    if(typeof jQuery === 'undefined'){
-      var jq = document.createElement('script');
-      jq.src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js';
-      jq.onload = function(){
-        var vt = document.createElement('script');
-        vt.src = 'https://track.velotrack.com.br/assets/js/external-login.js';
-        document.head.appendChild(vt);
-      };
-      document.head.appendChild(jq);
-    } else {
-      var vt = document.createElement('script');
-      vt.src = 'https://track.velotrack.com.br/assets/js/external-login.js';
-      document.head.appendChild(vt);
-    }
-    </script>
   </div>
 </section>
 
