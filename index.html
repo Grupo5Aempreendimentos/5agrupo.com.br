@@ -3,11 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline'; img-src * data:; connect-src *; frame-src *;">
 <title>Grupo 5A — Locadora de Veículos & Rastreamento Veicular</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="https://track.velotrack.com.br/assets/js/external-login.js"></script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
@@ -198,7 +195,7 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
     <div class="hero-cards">
       <a href="#locadora" class="hero-card">
         <div class="card-img-wrap">
-          <img src="imagem3.png" alt="5A Locadora de Veículos">
+          <img src="imagem3.jpg" alt="5A Locadora de Veículos">
         </div>
         <div class="card-body">
           <div class="card-label">5A Locadora</div>
@@ -216,7 +213,7 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
       </a>
       <a href="#socio" class="hero-card">
         <div class="card-img-wrap">
-          <img src="imagem2.png" alt="Seja um Sócio Investidor">
+          <img src="imagem2.jpg" alt="Seja um Sócio Investidor">
         </div>
         <div class="card-body">
           <div class="card-label">Seja Sócio Investidor</div>
@@ -247,7 +244,7 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
 <section class="locadora-section" id="locadora">
   <div class="locadora-inner">
     <div class="section-tag" style="justify-content:center">Braço operacional 01</div>
-    <img src="imagem3.png" alt="5A Locadora de Veículos" class="loc-logo">
+    <img src="imagem3.jpg" alt="5A Locadora de Veículos" class="loc-logo">
     <div class="section-title" style="text-align:center;color:var(--white)">5A Locadora<br>de Veículos</div>
 
     <p class="loc-text">
@@ -375,35 +372,23 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
     <div class="painel-title">Painel de Rastreamento</div>
     <div class="painel-sub">5A RASTREAMENTO &amp; GESTÃO VEICULAR</div>
     <div class="painel-box">
-      <form id="contact-form" action="javascript:;" method="" onsubmit="handleLogin(event)">
-        <div class="form-group">
-          <label>Login</label>
-          <input id="username" name="username" type="text" placeholder="Seu usuário">
-        </div>
-        <div class="form-group">
-          <label>Senha</label>
-          <input id="password" name="password" type="password" placeholder="Sua senha">
-        </div>
-        <button type="submit" class="painel-access-btn" style="border:none;width:100%;cursor:pointer">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="7" cy="8" r="1.5" fill="currentColor" stroke="none"/><path d="M11 8h6M11 11h4"/></svg>
-          Acessar meu painel
-        </button>
-      </form>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-      <script src="https://track.velotrack.com.br/assets/js/external-login.js"></script>
-      <script>
-      document.getElementById('contact-form').onsubmit = function(e) {
-        e.preventDefault();
-        var user = document.getElementById('username').value;
-        var pass = document.getElementById('password').value;
-        if(!user || !pass){ alert('Preencha login e senha.'); return; }
-        if(typeof submitExternalLoginFnc === 'function'){
-          submitExternalLoginFnc(user, pass, '5A Rastreamento', 'https://5agrupo.com.br/');
-        } else {
-          window.open('https://track.velotrack.com.br', '_blank');
-        }
-      };
-      </script>
+      <div class="form-group">
+        <label>Usuário / E-mail</label>
+        <input type="text" id="painel-user" placeholder="Seu usuário ou e-mail">
+      </div>
+      <div class="form-group">
+        <label>Senha</label>
+        <input type="password" id="painel-pass" placeholder="Sua senha">
+      </div>
+      <a class="painel-access-btn" href="https://track.velotrack.com.br/" target="_blank" onclick="acessarPainel(event)">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><circle cx="7" cy="8" r="1.5" fill="currentColor" stroke="none"/><path d="M11 8h6M11 11h4"/></svg>
+        Acessar meu painel
+      </a>
+      <div class="painel-divider"><span>ou</span></div>
+      <a class="painel-direct" href="https://track.velotrack.com.br/" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Acessar diretamente no sistema
+      </a>
     </div>
     <p style="font-size:12px;color:rgba(255,255,255,0.2);margin-top:16px">Não tem acesso? Entre em contato: (62) 99951-0912</p>
   </div>
@@ -415,7 +400,7 @@ footer{background:#050810;border-top:1px solid rgba(0,136,255,0.12);padding:36px
 <section class="socio-section" id="socio">
   <div class="socio-inner">
     <div class="section-tag" style="justify-content:center;color:var(--red)">Oportunidade de investimento</div>
-    <img src="imagem2.png" alt="Invista Conosco — Grupo 5A" class="socio-img">
+    <img src="imagem2.jpg" alt="Invista Conosco — Grupo 5A" class="socio-img">
     <div class="section-title" style="text-align:center;color:var(--white)">Seja um Sócio<br>Investidor</div>
     <p style="font-size:15px;color:rgba(255,255,255,0.55);line-height:1.9;margin-bottom:32px;text-align:center">
       Nós do Grupo 5A Empreendimentos, através da 5A Locadora, fazemos administração de veículos para locação. Nossos investidores ganham em média <b style="color:var(--white)">2,8% ao mês de rendimentos sobre o valor investido</b>, por cada veículo administrado por nós!<br><br>
@@ -478,7 +463,10 @@ function enviarSocio(e){
   window.open('https://wa.me/5562999510912?text='+msg,'_blank');
 }
 
-
+function acessarPainel(e){
+  e.preventDefault();
+  window.open('https://track.velotrack.com.br/','_blank');
+}
 </script>
 </body>
 </html>
